@@ -1,12 +1,9 @@
 <?php
 /**
- * Template Name: Главная страница
- * 
- * Шаблон для главной страницы 
+ * Template Name: Кастомная страница без контейнера для контента
  */
-?>
-<?php get_header(); ?>
 
+get_header(); ?>
 
 <section class="main-home-section">
   <?php
@@ -20,7 +17,7 @@
 
   <!-- Параллакс секция с фоновым изображением -->
   <div class="parallax-home-section" <?php if ($background_image): ?>
-      style="background-image: url('<?php echo esc_url($background_image['url']); ?>');" <?php endif; ?>>
+        style="background-image: url('<?php echo esc_url($background_image['url']); ?>');" <?php endif; ?>>
   </div>
 
   <section class="d-none d-lg-block">
@@ -207,91 +204,23 @@
         </h1>
 
         <?php if ($show_button): ?>
-          <a href="#" type="button" class="btn btn-primary mt-3 mt-md-5" data-bs-toggle="modal"
-            data-bs-target="#<?php echo esc_attr($modal_target); ?>">
-            <?php echo esc_html($button_text); ?>
-          </a>
+            <a href="#" type="button" class="btn btn-primary mt-3 mt-md-5" data-bs-toggle="modal"
+              data-bs-target="#<?php echo esc_attr($modal_target); ?>">
+              <?php echo esc_html($button_text); ?>
+            </a>
         <?php endif; ?>
       </div>
     </div>
   </div>
 </section>
 
-<section class="section">
-  <div class="container">
-    <div class="section-title text-center mb-5">
-      <h3 class="text-dark">Наши услуги</h3>
-      <img src="<?php echo get_template_directory_uri(); ?>/assets/img/ico/points.png" alt="Описание изображения"
-        class="img-fluid">
-    </div>
-    <div class="row g-4">
-      <?php
-      // Получаем все услуги
-      $services_query = new WP_Query(array(
-        'post_type' => 'services',
-        'posts_per_page' => -1, // Выводим все услуги
-        'post_status' => 'publish',
-        'meta_key' => '_thumbnail_id', // Только услуги с миниатюрами
-        'orderby' => 'menu_order',
-        'order' => 'ASC'
-      ));
+<?php while (have_posts()):
+  the_post(); ?>
 
-      if ($services_query->have_posts()):
-        while ($services_query->have_posts()):
-          $services_query->the_post();
-          $service_permalink = get_permalink();
-          $service_title = get_the_title();
-          $service_thumbnail = get_the_post_thumbnail_url(get_the_ID(), 'large');
+      <div class="page-content">
+          <?php the_content(); ?>
+      </div>
 
-          // Если нет миниатюры, используем заглушку
-          if (!$service_thumbnail) {
-            $service_thumbnail = get_template_directory_uri() . '/img/placeholder.png';
-          }
-          ?>
-          <!-- Элемент услуги -->
-          <div class="col-12 col-md-6 col-xl-4">
-            <a href="<?php echo esc_url($service_permalink); ?>"
-              class="work-item position-relative d-block overflow-hidden bg-linear-gradient">
-              <img src="<?php echo esc_url($service_thumbnail); ?>" alt="<?php echo esc_attr($service_title); ?>"
-                class="img-fluid work-image w-100">
-              <div class="work-text text-white">
-                <p><?php echo esc_html($service_title); ?></p>
-              </div>
-            </a>
-          </div>
-          <?php
-        endwhile;
-        wp_reset_postdata();
-      else:
-        ?>
-        <div class="col-12">
-          <p class="text-center">Услуги пока не добавлены.</p>
-        </div>
-      <?php endif; ?>
-    </div>
-  </div>
-</section>
-
-<?php
-// Если есть основной контент на главной странице
-if (have_posts()):
-  while (have_posts()):
-    the_post();
-    if (get_the_content()):
-      ?>
-      <section class="section">
-        <div class="container">
-          <div class="row">
-            <div class="col-12">
-              <?php the_content(); ?>
-            </div>
-          </div>
-        </div>
-      </section>
-      <?php
-    endif;
-  endwhile;
-endif;
-?>
+<?php endwhile; ?>
 
 <?php get_footer(); ?>
