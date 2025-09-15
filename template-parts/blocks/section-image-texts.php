@@ -65,7 +65,7 @@ $content_order_desktop = $image_position === 'left' ? 'order-md-3' : '';
                 <div class="d-none d-xl-block col-xl-1 order-md-2"></div>
                 <!-- Текст -->
                 <div
-                    class="col-12 col-md-6 col-xl-5 <?php echo esc_attr($content_order_mobile . ' ' . $content_order_desktop); ?> mb-4 mb-md-0">
+                    class="col-12 col-md-6 col-xl-5 <?php echo esc_attr($content_order_mobile . ' ' . $content_order_desktop); ?> mb-4 mb-md-0" style="align-self: center;" >
                     <?php echo $content; ?>
                 </div>
             <?php else: ?>
