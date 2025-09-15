@@ -17,7 +17,7 @@ get_header(); ?>
 
   <!-- Параллакс секция с фоновым изображением -->
   <div class="parallax-home-section" <?php if ($background_image): ?>
-        style="background-image: url('<?php echo esc_url($background_image['url']); ?>');" <?php endif; ?>>
+      style="background-image: url('<?php echo esc_url($background_image['url']); ?>');" <?php endif; ?>>
   </div>
 
   <section class="d-none d-lg-block">
@@ -204,10 +204,10 @@ get_header(); ?>
         </h1>
 
         <?php if ($show_button): ?>
-            <a href="#" type="button" class="btn btn-primary mt-3 mt-md-5" data-bs-toggle="modal"
-              data-bs-target="#<?php echo esc_attr($modal_target); ?>">
-              <?php echo esc_html($button_text); ?>
-            </a>
+          <a href="#" type="button" class="btn btn-primary mt-3 mt-md-5" data-bs-toggle="modal"
+            data-bs-target="#<?php echo esc_attr($modal_target); ?>">
+            <?php echo esc_html($button_text); ?>
+          </a>
         <?php endif; ?>
       </div>
     </div>
@@ -217,9 +217,9 @@ get_header(); ?>
 <?php while (have_posts()):
   the_post(); ?>
 
-      <div class="page-content">
-          <?php the_content(); ?>
-      </div>
+  <div class="page-content">
+    <?php the_content(); ?>
+  </div>
 
 <?php endwhile; ?>
 

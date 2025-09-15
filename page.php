@@ -6,7 +6,7 @@
 get_header(); ?>
 
 <section class="main-home-section">
-    <?php 
+    <?php
     // Получаем ACF поля
     $background_image = get_field('page_background_image');
     $show_button = get_field('show_calculate_button');
@@ -14,14 +14,12 @@ get_header(); ?>
     $button_text = get_field('button_text') ?: 'Рассчитать стоимость';
     $modal_target = get_field('button_modal_target') ?: 'calculatePriceWithDownloadModal';
     ?>
-    
+
     <!-- Параллакс секция с фоновым изображением -->
-    <div class="parallax-home-section" 
-         <?php if ($background_image): ?>
-         style="background-image: url('<?php echo esc_url($background_image['url']); ?>');"
-         <?php endif; ?>>
+    <div class="parallax-home-section" <?php if ($background_image): ?>
+            style="background-image: url('<?php echo esc_url($background_image['url']); ?>');" <?php endif; ?>>
     </div>
-    
+
     <section class="d-none d-lg-block">
         <!-- Header nav top -->
         <header class="d-block header-top py-0">
@@ -31,8 +29,9 @@ get_header(); ?>
                         <ul class="navbar-nav ms-auto align-items-center">
                             <li class="nav-item me-3 me-md-1 me-xl-3">
                                 <div class="nav-link d-flex align-items-center gap-3 gap-md-2 gap-xl-3 lh-1 nav-link-text"
-                                     style="cursor: pointer;">
-                                    <img src="<?php echo get_template_directory_uri(); ?>/assets/img/ico/location-ico.svg" />
+                                    style="cursor: pointer;">
+                                    <img
+                                        src="<?php echo get_template_directory_uri(); ?>/assets/img/ico/location-ico.svg" />
                                     гор. Химки, мкр-н Сходня,
                                     <br />
                                     ул. Октябрьская, д. 29А, стр. 1
@@ -40,42 +39,46 @@ get_header(); ?>
                             </li>
                             <li class="nav-item me-3 me-md-1 me-xl-3">
                                 <div class="nav-link d-flex align-items-center gap-3 gap-md-2 gap-xl-3 lh-1 nav-link-text"
-                                     style="cursor: pointer;">
-                                    <img src="<?php echo get_template_directory_uri(); ?>/assets/img/ico/clock-ico.svg" />
+                                    style="cursor: pointer;">
+                                    <img
+                                        src="<?php echo get_template_directory_uri(); ?>/assets/img/ico/clock-ico.svg" />
                                     Ежедневно
                                     <br />с 9:00 до 21:00
                                 </div>
                             </li>
                             <li class="nav-item me-3 me-md-1 me-xl-3">
                                 <a class="nav-link d-flex align-items-center gap-3 gap-md-2 gap-xl-3 lh-1 nav-link-text"
-                                   href="mailto:zakaz@mglight.ru">
-                                    <img src="<?php echo get_template_directory_uri(); ?>/assets/img/ico/email-ico.svg" />
+                                    href="mailto:zakaz@mglight.ru">
+                                    <img
+                                        src="<?php echo get_template_directory_uri(); ?>/assets/img/ico/email-ico.svg" />
                                     zakaz@mglight.ru
                                 </a>
                             </li>
                             <li class="nav-item me-3 me-md-1 me-xl-3">
                                 <button class="nav-link d-flex align-items-center gap-3 gap-md-2 gap-xl-3 lh-1"
-                                        data-bs-toggle="modal"
-                                        data-bs-target="#callbackModal">
-                                    <img src="<?php echo get_template_directory_uri(); ?>/assets/img/ico/callback-ico.svg" />
+                                    data-bs-toggle="modal" data-bs-target="#callbackModal">
+                                    <img
+                                        src="<?php echo get_template_directory_uri(); ?>/assets/img/ico/callback-ico.svg" />
                                     Обратный звонок
                                 </button>
                             </li>
                             <li class="nav-item me-3 me-md-1 me-xl-3">
                                 <a class="top-menu-tel nav-link" href="tel:+74994082271">
-                                    <img src="<?php echo get_template_directory_uri(); ?>/assets/img/ico/mobile-phone-ico.svg" />
+                                    <img
+                                        src="<?php echo get_template_directory_uri(); ?>/assets/img/ico/mobile-phone-ico.svg" />
                                     +7 499 408 22 71
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link ico-button" href="https://t.me/+79265930177">
-                                    <img src="<?php echo get_template_directory_uri(); ?>/assets/img/ico/telegram-ico.svg" />
+                                    <img
+                                        src="<?php echo get_template_directory_uri(); ?>/assets/img/ico/telegram-ico.svg" />
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link ico-button"
-                                   href="https://wa.me/79265930177?web=1&amp;app_absent=1">
-                                    <img src="<?php echo get_template_directory_uri(); ?>/assets/img/ico/whatsapp-ico.svg" />
+                                <a class="nav-link ico-button" href="https://wa.me/79265930177?web=1&amp;app_absent=1">
+                                    <img
+                                        src="<?php echo get_template_directory_uri(); ?>/assets/img/ico/whatsapp-ico.svg" />
                                 </a>
                             </li>
                         </ul>
@@ -84,7 +87,7 @@ get_header(); ?>
             </nav>
 
             <hr class="hr-top" />
-            
+
             <!-- Основная навигация -->
             <nav class="header-nav-bottom navbar navbar-expand-lg navbar-light py-1 py-lg-0">
                 <div class="container-fluid">
@@ -103,13 +106,9 @@ get_header(); ?>
                         </p>
                     </div>
 
-                    <button class="navbar-toggler mx-3 me-0 mx-lg-auto"
-                            type="button"
-                            data-bs-toggle="collapse"
-                            data-bs-target="#mobail-header-collapse"
-                            aria-controls="mobail-header-collapse"
-                            aria-expanded="false"
-                            aria-label="Toggle navigation">
+                    <button class="navbar-toggler mx-3 me-0 mx-lg-auto" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#mobail-header-collapse" aria-controls="mobail-header-collapse"
+                        aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
 
@@ -128,32 +127,31 @@ get_header(); ?>
 
                         <!-- Мобильное меню -->
                         <li class="nav-item d-lg-none">
-                            <button class="nav-link text-dark"
-                                    data-bs-toggle="modal"
-                                    data-bs-target="#callbackModal">
+                            <button class="nav-link text-dark" data-bs-toggle="modal" data-bs-target="#callbackModal">
                                 Обратный звонок
                             </button>
                         </li>
                         <li class="nav-item d-lg-none text-dark">
                             <div>
                                 <img src="<?php echo get_template_directory_uri(); ?>/assets/img/ico/location-ico.svg"
-                                     style="width: 13px" class="me-1" />
+                                    style="width: 13px" class="me-1" />
                                 <span>гор. Химки, мкр-н Сходня, ул. Октябрьская, д. 29А, стр. 1</span>
                             </div>
                             <a class="top-menu-tel nav-link fw-bold" href="tel:84912555505">8 (491) 2555-55-05</a>
                             <div class="mb-2 d-flex">
                                 <img src="<?php echo get_template_directory_uri(); ?>/assets/img/ico/clock-ico.svg"
-                                     style="width: 10px; position: relative; top: 2px" class="me-1 mb-2" />
+                                    style="width: 10px; position: relative; top: 2px" class="me-1 mb-2" />
                                 <div>Ежедневно <br />с 9:00 до 21:00</div>
                             </div>
                         </li>
                         <li class="nav-item d-lg-none pb-4">
-                            <a class="ico-button pe-2"
-                               href="https://wa.me/79265930177?web=1&amp;app_absent=1">
-                                <img src="<?php echo get_template_directory_uri(); ?>/assets/img/ico/whatsapp-ico.svg" />
+                            <a class="ico-button pe-2" href="https://wa.me/79265930177?web=1&amp;app_absent=1">
+                                <img
+                                    src="<?php echo get_template_directory_uri(); ?>/assets/img/ico/whatsapp-ico.svg" />
                             </a>
                             <a class="ico-button pe-0" href="https://t.me/+79265930177">
-                                <img src="<?php echo get_template_directory_uri(); ?>/assets/img/ico/telegram-ico.svg" />
+                                <img
+                                    src="<?php echo get_template_directory_uri(); ?>/assets/img/ico/telegram-ico.svg" />
                             </a>
                         </li>
                     </div>
@@ -183,13 +181,9 @@ get_header(); ?>
                     </div>
                 </div>
 
-                <button class="navbar-toggler mx-3 me-0 mx-lg-auto"
-                        type="button"
-                        data-bs-toggle="collapse"
-                        data-bs-target="#sliding-header-collapse"
-                        aria-controls="sliding-header-collapse"
-                        aria-expanded="false"
-                        aria-label="Toggle navigation">
+                <button class="navbar-toggler mx-3 me-0 mx-lg-auto" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#sliding-header-collapse" aria-controls="sliding-header-collapse"
+                    aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
@@ -219,13 +213,10 @@ get_header(); ?>
                 </h1>
 
                 <?php if ($show_button): ?>
-                <a href="#"
-                   type="button"
-                   class="btn btn-primary mt-3 mt-md-5"
-                   data-bs-toggle="modal"
-                   data-bs-target="#<?php echo esc_attr($modal_target); ?>">
-                    <?php echo esc_html($button_text); ?>
-                </a>
+                    <a href="#" type="button" class="btn btn-primary mt-3 mt-md-5" data-bs-toggle="modal"
+                        data-bs-target="#<?php echo esc_attr($modal_target); ?>">
+                        <?php echo esc_html($button_text); ?>
+                    </a>
                 <?php endif; ?>
             </div>
         </div>
@@ -235,22 +226,22 @@ get_header(); ?>
 <!-- Основной контент страницы -->
 <?php
 if (have_posts()):
-  while (have_posts()):
-    the_post();
-    if (get_the_content()):
-      ?>
-      <section class="section">
-        <div class="container">
-          <div class="row">
-            <div class="col-12">
-              <?php the_content(); ?>
-            </div>
-          </div>
-        </div>
-      </section>
-      <?php
-    endif;
-  endwhile;
+    while (have_posts()):
+        the_post();
+        if (get_the_content()):
+            ?>
+            <section class="section">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <?php the_content(); ?>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <?php
+        endif;
+    endwhile;
 endif;
 ?>
 <?php get_footer(); ?>
