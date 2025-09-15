@@ -57,7 +57,7 @@ $content_order_desktop = $image_position === 'left' ? 'order-md-3' : '';
                     <div class="img-wrapper">
                         <?php if (!empty($image)): ?>
                             <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>"
-                                class="img-fluid">
+                                class="img-fluid w-100">
                         <?php endif; ?>
                     </div>
                 </div>
@@ -70,7 +70,7 @@ $content_order_desktop = $image_position === 'left' ? 'order-md-3' : '';
                 </div>
             <?php else: ?>
                 <!-- Текст -->
-                <div class="col-12 col-md-6 col-xl-5 mb-4 mb-md-0">
+                <div class="col-12 col-md-6 col-xl-5 mb-4 mb-md-0" style="align-self: center;text-align: end;">
                     <?php echo $content; ?>
                 </div>
                 <!-- Пустая колонка -->
@@ -80,7 +80,7 @@ $content_order_desktop = $image_position === 'left' ? 'order-md-3' : '';
                     <div class="img-wrapper">
                         <?php if (!empty($image)): ?>
                             <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>"
-                                class="img-fluid">
+                                class="img-fluid w-100">
                         <?php endif; ?>
                     </div>
                 </div>
