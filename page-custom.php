@@ -88,15 +88,17 @@ get_header(); ?>
             <img src="<?php echo get_template_directory_uri(); ?>/assets/img/logo-light.svg" />
           </a>
 
-          <div class="d-none d-sm-block d-lg-none flex-column top-menu-tel-wrapper gap-1 my-2">
-            <a class="top-menu-tel nav-link" href="tel:+74994082271">
-              +7 499 408 22 71
-            </a>
-            <p class="nav-link d-flex align-items-center gap-3 lh-1 mb-0">
-              <img src="<?php echo get_template_directory_uri(); ?>/assets/img/ico/clock-ico.svg" />
-              Ежедневно
-              <br />с 9:00 до 21:00
-            </p>
+          <div class="d-lg-none">
+            <a class="top-menu-tel pt-1 pb-0" style="font-size: 14px" href="tel:+74994082271">+7 499 408 22 71</a>
+            <div style="
+                  font-size: 10px;
+                  font-family: Gilroy;
+                  font-weight: 300;
+                  text-transform: none;
+                ">
+              <img src="https://newtheme.site/wp-content/themes/dekorsever-wp/img/ico/clock-ico.svg"
+                style="width: 12px; position: relative; top: -1px" class="me-1">Ежедневно с 9:00 до 21:00
+            </div>
           </div>
 
           <button class="navbar-toggler mx-3 me-0 mx-lg-auto" type="button" data-bs-toggle="collapse"
@@ -160,15 +162,15 @@ get_header(); ?>
         </a>
 
         <div class="d-lg-none">
-          <div class="d-none d-sm-block d-lg-none flex-column top-menu-tel-wrapper gap-1 my-2">
-            <a class="top-menu-tel nav-link" href="tel:+74994082271">
-              +7 499 408 22 71
-            </a>
-            <p class="nav-link d-flex align-items-center gap-3 lh-1 mb-0" style="font-size: 14px">
-              <img src="<?php echo get_template_directory_uri(); ?>/assets/img/ico/clock-ico.svg" />
-              Ежедневно
-              <br />с 9:00 до 21:00
-            </p>
+          <a class="top-menu-tel pt-1 pb-0" style="font-size: 14px" href="tel:+74994082271">+7 499 408 22 71</a>
+          <div style="
+                  font-size: 10px;
+                  font-family: Gilroy;
+                  font-weight: 300;
+                  text-transform: none;
+                ">
+            <img src="https://newtheme.site/wp-content/themes/dekorsever-wp/img/ico/clock-ico.svg"
+              style="width: 12px; position: relative; top: -1px" class="me-1">Ежедневно с 9:00 до 21:00
           </div>
         </div>
 
@@ -180,7 +182,6 @@ get_header(); ?>
 
         <div class="collapse navbar-collapse" id="sliding-header-collapse">
           <?php
-          // Дублируем меню для плавающего заголовка
           wp_nav_menu(array(
             'theme_location' => 'primary',
             'depth' => 2,
@@ -189,7 +190,41 @@ get_header(); ?>
             'fallback_cb' => 'WP_Bootstrap_Navwalker::fallback',
             'walker' => new Bootstrap_Walker_Nav_Menu(),
           ));
+          $menu_output = ob_get_clean();
+
+          $mobile_items = '
+          <li class="nav-item d-lg-none">
+            <button class="nav-link text-dark" data-bs-toggle="modal" data-bs-target="#callbackModal">
+              Обратный звонок
+            </button>
+          </li>
+
+          <li class="nav-item d-lg-none text-dark">
+            <div>
+              <img src="' . get_template_directory_uri() . '/assets/img/ico/location-ico.svg" style="width: 13px" class="me-1" />
+              <span>гор. Химки, мкр-н Сходня, ул. Октябрьская, д. 29А, стр. 1</span>
+            </div>
+            <a class="top-menu-tel nav-link" href="tel:84912555505">8 (491) 2555-55-05</a>
+            <div class="mb-2 d-flex gap-1">
+              <img src="' . get_template_directory_uri() . '/assets/img/ico/clock-ico.svg" style="width: 10px; position: relative; top: 2px" class="me-1" />
+              <div class="text">Ежедневно <br />с 9:00 до 21:00</div>
+            </div>
+          </li>
+
+          <li class="nav-item d-lg-none pb-4">
+            <a class="ico-button pe-2" href="https://wa.me/79265930177?web=1&amp;app_absent=1">
+              <img src="' . get_template_directory_uri() . '/assets/img/ico/whatsapp-ico.svg" />
+            </a>
+            <a class="ico-button pe-0" href="https://t.me/+79265930177">
+              <img src="' . get_template_directory_uri() . '/assets/img/ico/telegram-ico.svg" />
+            </a>
+          </li>';
+
+          echo str_replace('</ul>', $mobile_items . '</ul>', $menu_output);
           ?>
+
+
+
         </div>
       </div>
     </nav>
