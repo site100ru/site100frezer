@@ -30,9 +30,9 @@ jobs:
           host: ${{ secrets.MGFREZER_HOST }}
           username: ${{ secrets.MGFREZER_USER }}
           key: ${{ secrets.MGFREZER_KEY }}
-          #script: |
-            #cd /var/www/u1538455/data/www/site100.ru/wp-content/themes/site100frezer
-            #git clone git@github.com:site100ru/site100frezer.git .
+          script: |
+            cd /home/h007374347/mgfrezer.ru/docs/wp-content/themes/site100frezer
+            git clone git@github.com:site100ru/site100frezer.git .
             
             #cd /var/www/u1538455/data/www/site100.ru/wp-content/themes/site100frezer
             #git pull
