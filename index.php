@@ -1,11 +1,14 @@
 <?php
-/**
- * Template Name: Главная страница
- * 
- * Шаблон для главной страницы 
- */
+	
+	/**
+	 * Template Name: Главная страница
+	 * 
+	 * Шаблон для главной страницы 
+	 */
+	
+	get_header();
+	
 ?>
-<?php get_header(); ?>
 
 
 <section class="main-home-section">
