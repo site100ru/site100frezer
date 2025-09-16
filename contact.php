@@ -182,6 +182,8 @@ get_header(); ?>
 
 				<div class="collapse navbar-collapse" id="sliding-header-collapse">
 					<?php
+					ob_start();
+					
 					wp_nav_menu(array(
 						'theme_location' => 'primary',
 						'depth' => 2,
