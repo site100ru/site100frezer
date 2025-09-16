@@ -8,6 +8,8 @@
 	<!-- Favicon -->
 	<link rel="shortcut icon" type="image/x-icon" href="<?php echo esc_url(get_template_directory_uri()); ?>/assets/img/favicon.svg" />
 
+	<title><?php echo wp_get_document_title(); ?></title>
+
 	<?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
