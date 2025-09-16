@@ -31,8 +31,8 @@ jobs:
           username: ${{ secrets.MGFREZER_USER }}
           key: ${{ secrets.MGFREZER_KEY }}
           script: |
-            cd /home/h007374347/mgfrezer.ru/docs/wp-content/themes/site100frezer
-            git clone https://github.com/site100ru/site100frezer.git .
+            #cd /home/h007374347/mgfrezer.ru/docs/wp-content/themes/site100frezer
+            #git clone https://github.com/site100ru/site100frezer.git .
             
-            #cd /var/www/u1538455/data/www/site100.ru/wp-content/themes/site100frezer
-            #git pull
+            cd /home/h007374347/mgfrezer.ru/docs/wp-content/themes/site100frezer
+            git pull
