@@ -176,17 +176,17 @@
 }
 
 @font-face {
-  font-display: swap;
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 400;
-  src: url(../fonts/roboto/roboto-v48-cyrillic-regular.woff2) format('woff2');
+	font-display: swap;
+	font-family: 'Roboto';
+	font-style: normal;
+	font-weight: 400;
+	src: url(../fonts/roboto/roboto-v48-cyrillic-regular.woff2) format('woff2');
 }
 
 @font-face {
-  font-display: swap;
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 700;
-  src: url(../fonts/roboto/roboto-v48-cyrillic-700.woff2) format('woff2');
+	font-display: swap;
+	font-family: 'Roboto';
+	font-style: normal;
+	font-weight: 700;
+	src: url(../fonts/roboto/roboto-v48-cyrillic-700.woff2) format('woff2');
 }

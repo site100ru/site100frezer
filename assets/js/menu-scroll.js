@@ -9,23 +9,23 @@
  */
 
 document.addEventListener('scroll', function () {
-  var sliderHeader = document.getElementById('sliding-header');
+	var sliderHeader = document.getElementById('sliding-header');
 
-  var prokrutka = window.pageYOffset;
-  if (window.screen.width >= 992) {
-    if (prokrutka > 300) {
-      sliderHeader.style.top = '0px';
-      sliderHeader.style.opacity = '1';
-    } else if (prokrutka <= 300) {
-      sliderHeader.style.top = '-100px';
-      sliderHeader.style.opacity = '0';
-    }
-  }
+	var prokrutka = window.pageYOffset;
+	if (window.screen.width >= 992) {
+		if (prokrutka > 300) {
+			sliderHeader.style.top = '0px';
+			sliderHeader.style.opacity = '1';
+		} else if (prokrutka <= 300) {
+			sliderHeader.style.top = '-100px';
+			sliderHeader.style.opacity = '0';
+		}
+	}
 });
 
 /* Parallax home section */
-$(window).scroll(function(e){
+$(window).scroll(function (e) {
 	var scrolled = $(window).scrollTop();
-	$('.parallax-home-section').css('top',(-(scrolled*.35) )+'px'); // 35 - скорость прокрутки
+	$('.parallax-home-section').css('top', (-(scrolled * .35)) + 'px'); // 35 - скорость прокрутки
 });
 /* End parallax home section */
