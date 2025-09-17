@@ -14,7 +14,7 @@ $service_portfolio = get_field('service_portfolio', $post_id);
 
 // Определяем класс фона
 $section_class = 'section section-works';
-if ($background_color === 'light') {
+if (isset($atts['class']) && $atts['class'] === 'light') {
     $section_class .= ' bg-alt-light';
 }
 
@@ -31,39 +31,22 @@ $unique_id = 'gallery_' . sanitize_key($service_title) . '_' . rand(1000, 9999);
             <img src="<?php echo get_template_directory_uri(); ?>/assets/img/ico/points.png" alt="Описание изображения" class="img-fluid" />
         </div>
 
-        <div class="row portfolio-columns">
-            <?php
-            // Создаем три колонки
-            $columns = array(0 => array(), 1 => array(), 2 => array());
-            $col_index = 0;
-            
-            // Распределяем изображения по колонкам
-            foreach ($service_portfolio as $index => $image) {
-                $columns[$col_index][] = array('image' => $image, 'index' => $index);
-                $col_index = ($col_index + 1) % 3;
-            }
-            
-            // Выводим колонки
-            foreach ($columns as $column_images): ?>
-                <div class="col-lg-4 col-md-6 col-sm-12 portfolio-column">
-                    <?php foreach ($column_images as $item): ?>
-                        <?php 
-                        $image = $item['image'];
-                        $image_index = $item['index'];
-                        $image_url = wp_get_attachment_image_url($image['ID'], 'medium');
-                        $alt_text = get_post_meta($image['ID'], '_wp_attachment_image_alt', true);
-                        ?>
-                        <div class="portfolio-item mb-4">
-                            <div class="portfolio-product-card">
-                                <a href="#" class="portfolio-product bg-linear-gradient" onclick="openGallery_<?php echo $unique_id; ?>(<?php echo $image_index; ?>); return false;">
-                                    <div class="single-product-img approximation position-relative">
-                                        <img src="<?php echo esc_url($image_url); ?>" class="rounded w-100" alt="<?php echo esc_attr($alt_text); ?>" loading="lazy" />
-                                        <div class="magnifier"></div>
-                                    </div>
-                                </a>
+        <!-- Masonry контейнер -->
+        <div class="portfolio-masonry row" id="portfolio-masonry-<?php echo $unique_id; ?>">
+            <?php foreach ($service_portfolio as $index => $image): ?>
+                <?php 
+                $image_url = wp_get_attachment_image_url($image['ID'], 'full');
+                $alt_text = get_post_meta($image['ID'], '_wp_attachment_image_alt', true);
+                ?>
+                <div class="portfolio-item col-lg-4 col-md-6 col-12 mb-4">
+                    <div class="portfolio-product-card">
+                        <a href="#" class="portfolio-product bg-linear-gradient" onclick="openGallery_<?php echo $unique_id; ?>(<?php echo $index; ?>); return false;">
+                            <div class="single-product-img approximation position-relative">
+                                <img src="<?php echo esc_url($image_url); ?>" class="rounded w-100" alt="<?php echo esc_attr($alt_text); ?>" loading="lazy" />
+                                <div class="magnifier"></div>
                             </div>
-                        </div>
-                    <?php endforeach; ?>
+                        </a>
+                    </div>
                 </div>
             <?php endforeach; ?>
         </div>
@@ -109,53 +92,49 @@ $unique_id = 'gallery_' . sanitize_key($service_title) . '_' . rand(1000, 9999);
 </div>
 
 <script>
+// Ждем загрузки jQuery
+function initPortfolio_<?php echo $unique_id; ?>() {
+    if (typeof jQuery !== 'undefined' && typeof jQuery().masonry === 'function' && typeof jQuery().imagesLoaded === 'function') {
+        jQuery(document).ready(function($) {
+            var $container = $('#portfolio-masonry-<?php echo $unique_id; ?>');
+            
+            $container.imagesLoaded(function() {
+                $container.masonry({
+                    itemSelector: '.portfolio-item',
+                    percentPosition: true
+                });
+            });
+        });
+    } else {
+        setTimeout(initPortfolio_<?php echo $unique_id; ?>, 100);
+    }
+}
+
+// Запускаем инициализацию
+initPortfolio_<?php echo $unique_id; ?>();
+
 function openGallery_<?php echo $unique_id; ?>(slideIndex) {
-    const modal = document.getElementById('galleryModal_<?php echo $unique_id; ?>');
-    const carousel = document.getElementById('mainGallery_<?php echo $unique_id; ?>');
-    
+    var modal = document.getElementById('galleryModal_<?php echo $unique_id; ?>');
     modal.style.display = 'block';
     document.body.style.overflow = 'hidden';
     
-    // Используем jQuery для инициализации Bootstrap карусели (совместимость с jQuery 1.5.1)
-    if (typeof $ !== 'undefined' && $.fn.carousel) {
-        $('#mainGallery_<?php echo $unique_id; ?>').carousel(slideIndex);
-    } else if (typeof bootstrap !== 'undefined') {
-        // Современный Bootstrap 5
-        const bootstrapCarousel = new bootstrap.Carousel(carousel);
-        bootstrapCarousel.to(slideIndex);
-    } else {
-        // Fallback - прямое переключение слайдов
-        const slides = carousel.querySelectorAll('.carousel-item');
-        const indicators = carousel.querySelectorAll('.carousel-indicators button');
-        
-        slides.forEach((slide, index) => {
-            slide.classList.toggle('active', index === slideIndex);
-        });
-        indicators.forEach((indicator, index) => {
-            indicator.classList.toggle('active', index === slideIndex);
-            if (index === slideIndex) {
-                indicator.setAttribute('aria-current', 'true');
-            } else {
-                indicator.removeAttribute('aria-current');
-            }
-        });
+    if (typeof jQuery !== 'undefined') {
+        jQuery('#mainGallery_<?php echo $unique_id; ?>').carousel(slideIndex);
     }
 }
 
 function closeGallery_<?php echo $unique_id; ?>() {
-    const modal = document.getElementById('galleryModal_<?php echo $unique_id; ?>');
+    var modal = document.getElementById('galleryModal_<?php echo $unique_id; ?>');
     modal.style.display = 'none';
     document.body.style.overflow = 'auto';
 }
 
-// Закрытие по клику на фон
 document.getElementById('galleryModal_<?php echo $unique_id; ?>').addEventListener('click', function(e) {
     if (e.target === this) {
         closeGallery_<?php echo $unique_id; ?>();
     }
 });
 
-// Закрытие по нажатию Escape
 document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape') {
         closeGallery_<?php echo $unique_id; ?>();

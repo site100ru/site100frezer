@@ -66,8 +66,9 @@ function theme_enqueue_scripts()
     // JavaScript файлы
     wp_enqueue_script('bootstrap', get_template_directory_uri() . '/assets/js/bootstrap.bundle.min.js', array('jquery'), '1.0', true);
     wp_enqueue_script('masonry', get_template_directory_uri() . '/assets/js/masonry.pkgd.min.js', array('jquery'), '4.2.2', true);
+    wp_enqueue_script('imagesloaded', get_template_directory_uri() . '/assets/js/imagesloaded.pkgd.min.js', array('jquery'), '4.1.4', true);
     wp_enqueue_script('inputmask', get_template_directory_uri() . '/assets/js/inputmask.min.js', array('jquery'), '1.0', true);
-    wp_enqueue_script('theme-js', get_template_directory_uri() . '/assets/js/theme.js', array('jquery, bootstrap'), '1.0', true);
+    wp_enqueue_script('theme-js', get_template_directory_uri() . '/assets/js/theme.js', array('jquery', 'bootstrap'), '1.0', true);
     wp_enqueue_script('menu-scroll', get_template_directory_uri() . '/assets/js/menu-scroll.js', array('jquery'), '1.0', true);
 }
 add_action('wp_enqueue_scripts', 'theme_enqueue_scripts');

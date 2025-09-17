@@ -170,7 +170,7 @@ a:hover {
 .section-title h6 {
 	font-weight: 600;
 	font-size: var(--section-font-size);
-	line-height: 0.83;
+	line-height: normal;
 	color: #4b4b4b !important;
 }
 
@@ -889,7 +889,7 @@ td span {
 }
 
 footer {
-	border-top: 1px solid #969696;
+	border-top: 1px solid #7d7d7d;
 	text-align: center;
 	color: #f5f5f5;
 	padding-top: 15px;
@@ -1284,7 +1284,7 @@ end section-advantages
 	position: absolute;
 	bottom: 0.5em;
 	width: 100%;
-	border-bottom: 2px dotted #323232;
+	border-bottom: 1px dotted #323232;
 	margin: 0 10px;
 }
 
@@ -1388,7 +1388,7 @@ end section-advantages
 	font-size: 60px;
 	color: #ebebeb;
 	text-transform: initial;
-	line-height: 1.35;
+	line-height: normal;
 }
 
 @media (max-width: 768px) {
@@ -1604,4 +1604,16 @@ end section-advantages
 
 body.modal-open {
 	padding-right: 0 !important;
+}
+
+.p-text {
+	font-weight: 300;
+	color: #323232;
+}
+
+.price-h4 {
+	font-family: Gilroy;
+	font-weight: 600 !important;
+	font-size: 26px !important;
+	color: #4b4b4b;
 }

@@ -147,11 +147,11 @@ get_header();
                                     style="width: 13px" class="me-1" />
                                 <span>гор. Химки, мкр-н Сходня, ул. Октябрьская, д. 29А, стр. 1</span>
                             </div>
-                            <a class="top-menu-tel nav-link fw-bold" href="tel:84912555505">8 (491) 2555-55-05</a>
+                            <a class="top-menu-tel nav-link fw-bold" href="tel:+74994082271">+7 499 408 22 71</a>
                             <div class="mb-2 d-flex">
                                 <img src="<?php echo get_template_directory_uri(); ?>/assets/img/ico/clock-ico.svg"
                                     style="width: 10px; position: relative; top: 2px" class="me-1 mb-2" />
-                                <div>Ежедневно <br />с 9:00 до 21:00</div>
+                                <div>span>Ежедневно с 9:00 до 21:00</span></div>
                             </div>
                         </li>
                         <li class="nav-item d-lg-none pb-4">
@@ -223,10 +223,10 @@ get_header();
               <img src="' . get_template_directory_uri() . '/assets/img/ico/location-ico.svg" style="width: 13px" class="me-1" />
               <span>гор. Химки, мкр-н Сходня, ул. Октябрьская, д. 29А, стр. 1</span>
             </div>
-            <a class="top-menu-tel nav-link" href="tel:84912555505">8 (491) 2555-55-05</a>
+            <a class="top-menu-tel nav-link" href="tel:+74994082271">+7 499 408 22 71</a>
             <div class="mb-2 d-flex gap-1">
               <img src="' . get_template_directory_uri() . '/assets/img/ico/clock-ico.svg" style="width: 10px; position: relative; top: 2px" class="me-1" />
-              <div class="text">Ежедневно <br />с 9:00 до 21:00</div>
+              <div class="text"><span>Ежедневно с 9:00 до 21:00</span></div>
             </div>
           </li>
 
@@ -306,7 +306,7 @@ get_header();
                             <img src="<?php echo esc_url($service_thumbnail); ?>" alt="<?php echo esc_attr($service_title); ?>"
                                 class="img-fluid work-image w-100">
                             <div class="work-text text-white">
-                                <p><?php echo esc_html($service_title); ?></p>
+                                <h3 class="mb-0"><?php echo esc_html($service_title); ?></h3>
                             </div>
                         </a>
                     </div>
