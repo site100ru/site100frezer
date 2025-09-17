@@ -19,7 +19,7 @@ if (isset($atts['class']) && $atts['class'] === 'light') {
 }
 
 // Генерируем уникальный ID для галереи
-$unique_id = 'gallery_' . sanitize_key($service_title) . '_' . rand(1000, 9999);
+$unique_id = 'gallery_' . $post_id . '_' . rand(1000, 9999);
 
 ?>
 
