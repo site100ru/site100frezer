@@ -306,7 +306,7 @@ get_header();
                             <img src="<?php echo esc_url($service_thumbnail); ?>" alt="<?php echo esc_attr($service_title); ?>"
                                 class="img-fluid work-image w-100">
                             <div class="work-text text-white">
-                                <h2 class="mb-0"><?php echo esc_html($service_title); ?></h2>
+                                <h3 class="mb-0"><?php echo esc_html($service_title); ?></h3>
                             </div>
                         </a>
                     </div>
