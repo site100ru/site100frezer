@@ -1370,7 +1370,7 @@ end section-advantages
 
 /* Parallax home section */
 .parallax-home-section {
-	min-height: 580px;
+	min-height: 660px;
 	width: 100%;
 	position: fixed;
 	background: url(../img/home.jpg) no-repeat;
@@ -1378,6 +1378,7 @@ end section-advantages
 	background-size: cover;
 	z-index: -1;
 	/*display: block;*/
+    top: 0;
 }
 
 @media (max-width: 768px) {
