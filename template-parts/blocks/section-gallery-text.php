@@ -37,9 +37,9 @@ $gallery_wrapper_id = 'galleryWrapper-' . $block['id'];
         <?php if (!empty($title)): ?>
         <div class="section-title text-center">
             <!-- Заголовок -->
-            <h3 class="text-dark fw-semibold" style="font-size: 26px">
+            <h2 class="text-dark fw-semibold" style="font-size: 26px">
                 <?php echo esc_html($title); ?>
-            </h3>
+            </h2>
 
             <!-- Изображение по центру -->
             <img src="<?php echo get_template_directory_uri(); ?>/assets/img/ico/points.png" alt="Описание изображения" class="img-fluid">

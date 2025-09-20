@@ -271,7 +271,7 @@ get_header();
 <section class="section">
     <div class="container">
         <div class="section-title text-center mb-5">
-            <h3 class="text-dark">Наши услуги</h3>
+            <h2 class="text-dark">Наши услуги</h2>
             <img src="<?php echo get_template_directory_uri(); ?>/assets/img/ico/points.png" alt="Описание изображения"
                 class="img-fluid">
         </div>
@@ -306,7 +306,7 @@ get_header();
                             <img src="<?php echo esc_url($service_thumbnail); ?>" alt="<?php echo esc_attr($service_title); ?>"
                                 class="img-fluid work-image w-100">
                             <div class="work-text text-white">
-                                <h3 class="mb-0"><?php echo esc_html($service_title); ?></h3>
+                                <h2 class="mb-0"><?php echo esc_html($service_title); ?></h2>
                             </div>
                         </a>
                     </div>

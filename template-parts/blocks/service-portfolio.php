@@ -13,7 +13,7 @@ $service_title = get_the_title($post_id);
 $service_portfolio = get_field('service_portfolio', $post_id);
 
 // Определяем класс фона
-$section_class = 'section section-works';
+$section_class = 'section section-works service-portfolio';
 if (isset($atts['class']) && $atts['class'] === 'light') {
     $section_class .= ' bg-alt-light';
 }
@@ -27,7 +27,7 @@ $unique_id = 'gallery_' . $post_id . '_' . rand(1000, 9999);
 <section class="<?php echo esc_attr($section_class); ?>">
     <div class="container">
         <div class="section-title text-center mb-5" style="max-width: 720px; justify-self: center">
-            <h3 class="text-dark"><?php echo esc_html($service_title); ?></h3>
+            <h2 class="text-dark"><?php echo esc_html($service_title); ?></h2>
             <img src="<?php echo get_template_directory_uri(); ?>/assets/img/ico/points.png" alt="Описание изображения" class="img-fluid" />
         </div>
 
@@ -146,7 +146,7 @@ document.addEventListener('keydown', function(e) {
 <section class="<?php echo esc_attr($section_class); ?>">
     <div class="container">
         <div class="section-title text-center mb-5">
-            <h3 class="text-dark"><?php echo esc_html($service_title); ?></h3>
+            <h2 class="text-dark"><?php echo esc_html($service_title); ?></h2>
             <img src="<?php echo get_template_directory_uri(); ?>/assets/img/ico/points.png" alt="Описание изображения" class="img-fluid" />
         </div>
         <div class="row">

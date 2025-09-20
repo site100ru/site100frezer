@@ -267,7 +267,7 @@ get_header(); ?>
 <section class="section text-dark section-about section-grid">
     <div class="container">
         <div class="section-title text-center mb-5">
-            <h3 class="text-dark">Контакты</h3>
+            <h2 class="text-dark">Контакты</h2>
             <img src="<?php echo get_template_directory_uri(); ?>/assets/img/ico/points.png" alt="Описание изображения"
                 class="img-fluid" />
         </div>

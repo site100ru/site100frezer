@@ -24,11 +24,11 @@ if ($atts['class'] === 'light') {
     <div class="container single-product">
         <div class="section-title text-center">
             <!-- Заголовок -->
-            <h3 class="text-dark fw-semibold">Цены</h3>
+            <h2 class="text-dark fw-semibold">Цены</h2>
             
             <!-- Название услуги под заголовком -->
             <?php if ($service_title): ?>
-                <h4 class="text-dark mb-3 price-h4"><?php echo esc_html($service_title); ?></h4>
+                <h4 class="text-dark mb-0 price-h4"><?php echo esc_html($service_title); ?></h4>
             <?php endif; ?>
 
             <!-- Изображение по центру -->

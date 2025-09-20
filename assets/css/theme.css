@@ -889,7 +889,7 @@ td span {
 }
 
 footer {
-	border-top: 1px solid #7d7d7d;
+	border-top: 1px solid rgba(125, 125, 125, 0.5);
 	text-align: center;
 	color: #f5f5f5;
 	padding-top: 15px;
@@ -1380,6 +1380,14 @@ end section-advantages
 	/*display: block;*/
 }
 
+@media (max-width: 768px) {
+	.parallax-home-section {
+		min-height: 700px;
+		background-position: 50% 60%;
+		top: 0;
+	}
+}
+
 /* End parallax home section */
 
 .home-title {
@@ -1616,4 +1624,13 @@ body.modal-open {
 	font-weight: 600 !important;
 	font-size: 26px !important;
 	color: #4b4b4b;
+}
+
+.service-portfolio .section-title h1,
+.service-portfolio .section-title h2,
+.service-portfolio .section-title h3,
+.service-portfolio .section-title h4,
+.service-portfolio .section-title h5,
+.service-portfolio .section-title h6 {
+    text-wrap: balance;
 }
