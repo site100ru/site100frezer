@@ -28,7 +28,7 @@ if ($atts['class'] === 'light') {
             
             <!-- Название услуги под заголовком -->
             <?php if ($service_title): ?>
-                <h4 class="text-dark mb-0 price-h4"><?php echo esc_html($service_title); ?></h4>
+                <h3 class="text-dark mb-0 price-h4"><?php echo esc_html($service_title); ?></h3>
             <?php endif; ?>
 
             <!-- Изображение по центру -->
