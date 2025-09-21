@@ -1635,3 +1635,69 @@ body.modal-open {
 .service-portfolio .section-title h6 {
     text-wrap: balance;
 }
+
+.prices-section td {
+	border: none;
+	border-bottom: 1px dotted black;
+	padding: 0;
+	padding-top: 50px;
+	height: auto;
+	line-height: 20px;
+	vertical-align: bottom;
+	font-family: HelveticaNeueCyr;
+    font-weight: 300;
+	font-size: 20px;
+}
+
+.prices-section td span {
+	background: white;
+    font-weight: 300;
+	font-family: HelveticaNeueCyr;
+	font-size: 20px;
+	color: #323232;
+}
+
+.prices-section td span.price-discount {
+	background: white;
+    font-weight: 500;
+	font-family: HelveticaNeueCyr;
+	font-size: 20px;
+	color: #323232;
+}
+
+.prices-section td span.price-description {
+	background: white;
+    font-weight: 300;
+	font-family: HelveticaNeueCyr;
+	font-size: 16px;
+	color: #323232;
+}
+
+.prices-section .prices-section-responsive .prices-section-responsive-text p {
+	font-family: HelveticaNeueCyr;
+    font-weight: 400;
+	color: #323232;
+	font-size: 18px;
+	margin-bottom: 0;
+}
+
+.prices-section .prices-section-responsive .prices-section-responsive-phone a {
+	font-family: HelveticaNeueCyr;
+    font-weight: 400;
+}
+
+.prices-section .prices-section-responsive .prices-section-responsive-phone a span {
+	color: #086d8f;
+}
+
+.prices-section .prices-section-responsive .prices-section-responsive-btn {
+	padding: 12px 32px;
+}
+
+
+.section.bg-alt-light.prices-section td,
+.section.bg-alt-light.prices-section td span,
+.section.bg-alt-light.prices-section td span.price-discount,
+.section.bg-alt-light.prices-section td span.price-description {
+    background-color: #f5f5f5;
+}

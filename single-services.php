@@ -100,7 +100,7 @@
                                     font-weight: 300;
                                     text-transform: none;
                                 ">
-                            <img src="https://newtheme.site/wp-content/themes/dekorsever-wp/img/ico/clock-ico.svg"
+                            <img src="<?php echo get_template_directory_uri(); ?>/assets/img/ico/clock-ico.svg"
                                 style="width: 12px; position: relative; top: -1px" class="me-1">Ежедневно с 9:00 до
                             21:00
                         </div>
@@ -177,7 +177,7 @@
                                     font-weight: 300;
                                     text-transform: none;
                                 ">
-                        <img src="https://newtheme.site/wp-content/themes/dekorsever-wp/img/ico/clock-ico.svg"
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/img/ico/clock-ico.svg"
                             style="width: 12px; position: relative; top: -1px" class="me-1">Ежедневно с 9:00 до 21:00
                     </div>
                 </div>
@@ -392,25 +392,38 @@
         if ($prices && is_array($prices) && count($prices) > 0):
             ?>
             <!-- Цены на сером фоне -->
-            <section class="section bg-alt-light text-dark">
+            <section class="section prices-section bg-alt-light py-5">
                 <div class="container single-product">
-                    <div class="section-title text-center">
-                        <!-- Заголовок -->
-                        <h2 class="text-dark fw-semibold">Цены</h2>
+                    <div class="row justify-content-center">
+                        <div class="col">
+                            <!-- Заголовок -->
+                            <h2 class="text-center mb-3 text-dark fw-semibold">Цены</h2>
 
-                        <!-- Изображение по центру -->
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/img/ico/points.png" alt="Описание изображения"
-                            class="img-fluid" />
-                    </div>
+                            <!-- Изображение по центру -->
+                            <div class="text-center mb-4">
+                                <img src="<?php echo get_template_directory_uri(); ?>/assets/img/ico/points.png"
+                                    alt="Описание изображения" class="img-fluid">
+                            </div>
 
-                    <div class="row">
-                        <div class="col-12">
-                            <?php foreach ($prices as $index => $price): ?>
-                                <div class="price-item <?php echo ($index === count($prices) - 1) ? 'mb-0' : ''; ?>">
-                                    <span class="price-name"><?php echo esc_html($price['price_name']); ?></span>
-                                    <span class="price-value price-text"><?php echo esc_html($price['price_value']); ?></span>
-                                </div>
-                            <?php endforeach; ?>
+                            <!-- Таблица с ценами -->
+                            <div class="table-responsive">
+                                <table class="table table-borderless">
+                                    <tbody>
+                                        <?php foreach ($prices as $price): ?>
+                                            <tr>
+                                                <td class="price-name">
+                                                    <?php echo esc_html($price['price_name']); ?>
+                                                </td>
+                                                <td class="text-end">
+                                                    <span class="price-discount price-text">
+                                                        <?php echo esc_html($price['price_value']); ?>
+                                                    </span>
+                                                </td>
+                                            </tr>
+                                        <?php endforeach; ?>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
                 </div>

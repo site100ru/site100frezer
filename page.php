@@ -104,7 +104,7 @@ get_header(); ?>
                                     font-weight: 300;
                                     text-transform: none;
                                 ">
-                            <img src="https://newtheme.site/wp-content/themes/dekorsever-wp/img/ico/clock-ico.svg"
+                            <img src="<?php echo get_template_directory_uri(); ?>/assets/img/ico/clock-ico.svg"
                                 style="width: 12px; position: relative; top: -1px" class="me-1">Ежедневно с 9:00 до
                             21:00
                         </div>
@@ -181,7 +181,7 @@ get_header(); ?>
                                     font-weight: 300;
                                     text-transform: none;
                                 ">
-                        <img src="https://newtheme.site/wp-content/themes/dekorsever-wp/img/ico/clock-ico.svg"
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/img/ico/clock-ico.svg"
                             style="width: 12px; position: relative; top: -1px" class="me-1">Ежедневно с 9:00 до 21:00
                     </div>
                 </div>

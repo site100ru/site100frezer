@@ -70,7 +70,7 @@ $content_order_desktop = $image_position === 'left' ? 'order-md-3' : '';
                 </div>
             <?php else: ?>
                 <!-- Текст -->
-                <div class="col-12 col-md-6 col-xl-5 mb-4 mb-md-0" style="align-self: center;text-align: end;">
+                <div class="col-12 col-md-6 col-xl-5 mb-4 mb-md-0 align-self-center text-md-end ">
                     <?php echo $content; ?>
                 </div>
                 <!-- Пустая колонка -->
