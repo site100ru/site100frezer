@@ -13,10 +13,12 @@ $service_prices = get_field('service_prices', $post_id);
 $service_title = get_the_title($post_id); 
 
 // Определяем класс фона
-$bg_class = 'section prices-section py-5';
 if ($atts['class'] === 'light') {
     $bg_class = 'section prices-section bg-alt-light py-5';
-} 
+} else {
+    $bg_class = 'section prices-section py-5';
+}
+
 ?>
 
 <section class="<?php echo esc_attr($bg_class); ?>">
