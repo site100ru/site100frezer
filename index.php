@@ -323,52 +323,6 @@ get_header();
     </div>
 </section>
 
-
-<section class="prices-section bg-white py-5">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col">
-                <h2 class="text-center mb-3">Система скидок</h2>
-
-                <!-- Изображение по центру -->
-                <div class="text-center mb-4">
-                    <img src="<?php echo get_template_directory_uri(); ?>/assets/img/ico/points.png"
-                        alt="Описание изображения" class="img-fluid mx-auto">
-                </div>
-
-
-                <div class="table-responsive">
-                    <table class="table">
-                        <tbody>
-                            <tr style="position: relative;">
-                                <td>Термогиб и сборка</td>
-                                <td class="text-end"><span class="price-discount">от 300 руб/кв.м</span></td>
-                            </tr>
-                            <tr style="position: relative;">
-                                <td>Термогиб и сборка</td>
-                                <td class="text-end"><span class="price-discount">от 300 руб/кв.м</span></td>
-                            </tr>
-                            <tr style="position: relative;">
-                                <td>Термогиб и сборка</td>
-                                <td class="text-end"><span class="price-discount">от 300 руб/кв.м</span></td>
-                            </tr>
-                            <tr style="position: relative;">
-                                <td>Термогиб и сборка</td>
-                                <td class="text-end"><span class="price-discount">от 300 руб/кв.м</span></td>
-                            </tr>
-                            <tr style="position: relative;">
-                                <td>Термогиб и сборка</td>
-                                <td class="text-end"><span class="price-discount">от 300 руб/кв.м</span></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- /Section descount prices -->
-
 <?php
 // Если есть основной контент на главной странице
 if (have_posts()):
