@@ -400,24 +400,24 @@
                             <h2 class="text-center mb-3 text-dark fw-semibold">Цены</h2>
 
                             <!-- Изображение по центру -->
-                            <div class="text-center mb-4">
+                            <div class="text-center mb-0">
                                 <img src="<?php echo get_template_directory_uri(); ?>/assets/img/ico/points.png"
                                     alt="Описание изображения" class="img-fluid">
                             </div>
 
                             <!-- Таблица с ценами -->
                             <div class="table-responsive">
-                                <table class="table table-borderless">
+                                <table class="table">
                                     <tbody>
                                         <?php foreach ($prices as $price): ?>
                                             <tr>
-                                                <td class="price-name">
+                                                <td>
                                                     <span>
                                                         <?php echo esc_html($price['price_name']); ?>
                                                     </span>
                                                 </td>
                                                 <td class="text-end">
-                                                    <span class="price-discount price-text">
+                                                    <span class="price-discount">
                                                         <?php echo esc_html($price['price_value']); ?>
                                                     </span>
                                                 </td>

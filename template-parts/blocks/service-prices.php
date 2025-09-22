@@ -41,19 +41,19 @@ if ($atts['class'] === 'light') {
 
                 <!-- Таблица с ценами -->
                 <div class="table-responsive">
-                    <table class="table table-borderless">
+                    <table class="table">
                         <tbody>
                             <?php if ($service_prices && is_array($service_prices)): ?>
                                 <?php foreach ($service_prices as $index => $price_item): ?>
                                     <?php if ($price_item['price_name'] && $price_item['price_value']): ?>
                                         <tr>
-                                            <td class="price-name">
+                                            <td>
                                                 <span>
                                                     <?php echo esc_html($price_item['price_name']); ?>
                                                 </span>
                                             </td>
                                             <td class="text-end">
-                                                <span class="price-discount price-text">
+                                                <span class="price-discount">
                                                     <?php echo esc_html($price_item['price_value']); ?>
                                                 </span>
                                             </td>
@@ -62,11 +62,11 @@ if ($atts['class'] === 'light') {
                                 <?php endforeach; ?>
                             <?php else: ?>
                                 <tr>
-                                    <td class="price-name">
-                                        Цены для данной услуги не указаны
+                                    <td>
+                                        <span>Цены для данной услуги не указаны</span>
                                     </td>
                                     <td class="text-end">
-                                        <span class="price-discount price-text">По запросу</span>
+                                        <span class="price-discount">По запросу</span>
                                     </td>
                                 </tr>
                             <?php endif; ?>
