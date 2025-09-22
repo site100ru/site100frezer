@@ -395,7 +395,7 @@
             <section class="section prices-section bg-alt-light py-5">
                 <div class="container single-product">
                     <div class="row justify-content-center">
-                        <div class="col">
+                        <div class="col-lg-8">
                             <!-- Заголовок -->
                             <h2 class="text-center mb-3 text-dark fw-semibold">Цены</h2>
 
@@ -412,7 +412,9 @@
                                         <?php foreach ($prices as $price): ?>
                                             <tr>
                                                 <td class="price-name">
-                                                    <?php echo esc_html($price['price_name']); ?>
+                                                    <span>
+                                                        <?php echo esc_html($price['price_name']); ?>
+                                                    </span>
                                                 </td>
                                                 <td class="text-end">
                                                     <span class="price-discount price-text">

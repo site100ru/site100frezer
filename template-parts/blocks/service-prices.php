@@ -24,7 +24,7 @@ if ($atts['class'] === 'light') {
 <section class="<?php echo esc_attr($bg_class); ?>">
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col">
+            <div class="col-lg-8">
                 <!-- Заголовок -->
                 <h2 class="text-center mb-3">Цены</h2>
                 
@@ -36,7 +36,7 @@ if ($atts['class'] === 'light') {
                 <!-- Изображение по центру -->
                 <div class="text-center mb-4">
                     <img src="<?php echo get_template_directory_uri(); ?>/assets/img/ico/points.png" 
-                         alt="Описание изображения" class="img-fluid">
+                        alt="Описание изображения" class="img-fluid">
                 </div>
 
                 <!-- Таблица с ценами -->
@@ -48,7 +48,9 @@ if ($atts['class'] === 'light') {
                                     <?php if ($price_item['price_name'] && $price_item['price_value']): ?>
                                         <tr>
                                             <td class="price-name">
-                                                <?php echo esc_html($price_item['price_name']); ?>
+                                                <span>
+                                                    <?php echo esc_html($price_item['price_name']); ?>
+                                                </span>
                                             </td>
                                             <td class="text-end">
                                                 <span class="price-discount price-text">
