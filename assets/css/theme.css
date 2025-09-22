@@ -1607,7 +1607,7 @@ body.modal-open {
 
 .prices-section td {
 	border: none;
-	border-bottom: 1px solid black;
+	border-bottom: 1px dotted black;
 	padding: 0;
 	padding-top: 50px;
 	height: auto;
