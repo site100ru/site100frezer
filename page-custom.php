@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Template Name: Кастомная страница без контейнера для контента
  */
@@ -17,7 +18,7 @@ get_header(); ?>
 
     <!-- Параллакс секция с фоновым изображением -->
     <div class="parallax-home-section" <?php if ($background_image): ?>
-            style="background-image: url('<?php echo esc_url($background_image['url']); ?>');" <?php endif; ?>>
+        style="background-image: url('<?php echo esc_url($background_image['url']); ?>');" <?php endif; ?>>
     </div>
 
     <section class="d-none d-lg-block">
@@ -96,8 +97,8 @@ get_header(); ?>
                     </a>
 
                     <div class="d-lg-none">
-                        <a class="top-menu-tel pt-1 pb-0" style="font-size: 14px" href="tel:+74994082271">+7 499 408 22
-                            71</a>
+                        <a class="top-menu-tel pt-1 pb-0" style="font-size: 14px" href="tel:+74994082271">
+                            +7 499 408 22 71</a>
                         <div style="
                                     font-size: 10px;
                                     font-family: Gilroy;
@@ -116,48 +117,40 @@ get_header(); ?>
                         <span class="navbar-toggler-icon"></span>
                     </button>
 
-                    <div class="collapse navbar-collapse" id="mobail-header-collapse">
+                    <div class="collapse navbar-collapse" id="sliding-header-collapse">
                         <?php
-                        // Выводим WordPress меню с Bootstrap Walker
                         wp_nav_menu(array(
                             'theme_location' => 'primary',
                             'depth' => 2,
                             'container' => false,
-                            'menu_class' => 'navbar-nav align-items-start align-items-lg-center ms-auto mb-2 mb-lg-0',
+                            'menu_class' => 'navbar-nav align-items-start align-items-lg-center ms-auto mb-lg-0',
                             'fallback_cb' => 'WP_Bootstrap_Navwalker::fallback',
                             'walker' => new Bootstrap_Walker_Nav_Menu(),
                         ));
                         ?>
-
-                        <!-- Мобильное меню -->
-                        <li class="nav-item d-lg-none">
-                            <button class="nav-link text-dark" data-bs-toggle="modal" data-bs-target="#callbackModal">
+                        <div class="d-lg-none nav-item navbar-nav  mb-2">
+                            <button class="nav-link text-dark" data-bs-toggle="modal" data-bs-target="#callbackModal" style="align-self: start;">
                                 Обратный звонок
                             </button>
-                        </li>
-                        <li class="nav-item d-lg-none text-dark">
+
                             <div>
-                                <img src="<?php echo get_template_directory_uri(); ?>/assets/img/ico/location-ico.svg"
-                                    style="width: 13px" class="me-1" />
+                                <img src="<?php echo get_template_directory_uri(); ?>/assets/img/ico/location-ico.svg" style="width: 13px" class="me-1" />
                                 <span>гор. Химки, мкр-н Сходня, ул. Октябрьская, д. 29А, стр. 1</span>
                             </div>
-                            <a class="top-menu-tel nav-link fw-bold" href="tel:+74994082271">+7 499 408 22 71</a>
-                            <div class="mb-2 d-flex">
-                                <img src="<?php echo get_template_directory_uri(); ?>/assets/img/ico/clock-ico.svg"
-                                    style="width: 10px; position: relative; top: 2px" class="me-1 mb-2" />
-                                <div>span>Ежедневно с 9:00 до 21:00</span></div>
+                            <a class="nav-link top-menu-tel" href="tel:+74994082271">+7 499 408 22 71</a>
+                            <div class="mb-2 d-flex gap-1">
+                                <img src="<?php echo get_template_directory_uri(); ?>/assets/img/ico/clock-ico.svg" style="width: 10px; position: relative; top: 2px" class="me-1" />
+                                <div class="text"><span>Ежедневно с 9:00 до 21:00</span></div>
                             </div>
-                        </li>
-                        <li class="nav-item d-lg-none pb-4">
-                            <a class="ico-button pe-2" href="https://wa.me/79265930177?web=1&amp;app_absent=1">
-                                <img
-                                    src="<?php echo get_template_directory_uri(); ?>/assets/img/ico/whatsapp-ico.svg" />
-                            </a>
-                            <a class="ico-button pe-0" href="https://t.me/+79265930177">
-                                <img
-                                    src="<?php echo get_template_directory_uri(); ?>/assets/img/ico/telegram-ico.svg" />
-                            </a>
-                        </li>
+                            <div class="pb-4">
+                                <a class="ico-button pe-2" href="https://wa.me/79265930177?web=1&amp;app_absent=1">
+                                    <img src="<?php echo get_template_directory_uri(); ?>/assets/img/ico/whatsapp-ico.svg" />
+                                </a>
+                                <a class="ico-button pe-0" href="https://t.me/+79265930177">
+                                    <img src="<?php echo get_template_directory_uri(); ?>/assets/img/ico/telegram-ico.svg" />
+                                </a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </nav>
