@@ -374,14 +374,16 @@ if ($price_blocks): foreach ($price_blocks as $price_block):
         <div class="container single-product">
             <div class="row justify-content-center">
                 <div class="col-lg-8">
-                    <h2 class="text-center mb-3 text-dark fw-semibold">
-                        <?php echo $price_block['price_title']; ?>
-                    </h2>
+                    <?php
+                    if (!empty($price_block['price_title'])): ?>
+                        <h2 class="text-center mb-3 text-dark fw-semibold">
+                            <?php echo $price_block['price_title']; ?>
+                        </h2>
 
-                    <div class="text-center mb-0">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/img/ico/points.png"
-                            alt="" class="img-fluid">
-                    </div>
+                        <div class="text-center mb-0">
+                            <img src="<?php echo get_template_directory_uri(); ?>/assets/img/ico/points.png" alt="" class="img-fluid">
+                        </div>
+                    <?php endif; ?>
 
                     <?php if ($prices && is_array($prices) && count($prices) > 0): ?>
                         <div class="table-responsive">
