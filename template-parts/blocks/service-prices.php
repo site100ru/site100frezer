@@ -5,15 +5,12 @@
  * Переменные:
  * $post_id - ID поста услуги
  * $atts['class'] - класс фона 
- * $atts['title'] - название услуги
+ * $service_title - название услуги (из атрибута или заголовка поста)
+ * $service_prices - массив цен из текущего блока
  */
 
-// Получаем данные услуги
-$service_prices = get_field('service_prices', $post_id);
-$service_title = get_the_title($post_id); 
-
 // Определяем класс фона
-if ($atts['class'] === 'light') {
+if (isset($atts['class']) && $atts['class'] === 'light') {
     $bg_class = 'section prices-section bg-alt-light py-5';
 } else {
     $bg_class = 'section prices-section py-5';
@@ -29,7 +26,7 @@ if ($atts['class'] === 'light') {
                 <h2 class="text-center mb-3">Цены</h2>
                 
                 <!-- Название услуги под заголовком -->
-                <?php if ($service_title): ?>
+                <?php if (isset($service_title) && $service_title): ?>
                     <h3 class="text-center mb-4 price-h4"><?php echo esc_html($service_title); ?></h3>
                 <?php endif; ?>
 
@@ -43,9 +40,9 @@ if ($atts['class'] === 'light') {
                 <div class="table-responsive">
                     <table class="table">
                         <tbody>
-                            <?php if ($service_prices && is_array($service_prices)): ?>
+                            <?php if (isset($service_prices) && $service_prices && is_array($service_prices) && count($service_prices) > 0): ?>
                                 <?php foreach ($service_prices as $index => $price_item): ?>
-                                    <?php if ($price_item['price_name'] && $price_item['price_value']): ?>
+                                    <?php if (isset($price_item['price_name']) && isset($price_item['price_value']) && $price_item['price_name'] && $price_item['price_value']): ?>
                                         <tr>
                                             <td>
                                                 <span>

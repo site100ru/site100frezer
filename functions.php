@@ -78,7 +78,8 @@ function service_prices_shortcode($atts)
 {
     $atts = shortcode_atts(array(
         'title' => '',
-        'class' => ''
+        'class' => '',
+        'blocks' => '' // Например: "1,2,3" или "2" или "" (все блоки)
     ), $atts, 'service_prices');
 
     if (empty($atts['title'])) {
@@ -94,16 +95,57 @@ function service_prices_shortcode($atts)
     ));
 
     if (!$service_query->have_posts()) {
-        return '<p>Услуга с названием "' . esc_html($atts['title']) . '" не найдена</p>';
+        return '';
     }
 
     $service_query->the_post();
     $post_id = get_the_ID();
+    $service_title = $atts['title'] ?? get_the_title($post_id); 
     wp_reset_postdata();
 
-    // Подключаем шаблон для вывода
+    // Получаем все блоки цен
+    $price_blocks = get_field('price_blocks', $post_id);
+    
+    if (!$price_blocks || !is_array($price_blocks)) {
+        return '';
+    }
+
+    // Определяем какие блоки выводить
+    $blocks_to_show = array();
+    
+    if (!empty($atts['blocks'])) {
+        // Если указаны конкретные блоки
+        $block_numbers = array_map('trim', explode(',', $atts['blocks']));
+        foreach ($block_numbers as $num) {
+            $index = intval($num) - 1; // Преобразуем 1,2,3 в 0,1,2
+            if (isset($price_blocks[$index])) {
+                $blocks_to_show[] = $price_blocks[$index];
+            }
+        }
+    } else {
+        // Если не указаны - выводим все
+        $blocks_to_show = $price_blocks;
+    }
+
+    if (empty($blocks_to_show)) {
+        return '';
+    }
+
+    // Выводим блоки
     ob_start();
-    include get_template_directory() . '/template-parts/blocks/service-prices.php';
+    
+    foreach ($blocks_to_show as $block) {
+        // Подменяем service_prices на данные из конкретного блока
+        $service_prices = $block['service_prices'];
+        
+        if (!$service_prices || !is_array($service_prices) || count($service_prices) == 0) {
+            continue; // Пропускаем пустые блоки
+        }
+        
+        // Подключаем шаблон для каждого блока
+        include get_template_directory() . '/template-parts/blocks/service-prices.php';
+    }
+    
     return ob_get_clean();
 }
 add_shortcode('service_prices', 'service_prices_shortcode');

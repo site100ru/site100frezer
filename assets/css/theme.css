@@ -578,6 +578,19 @@ td span {
 	z-index: -1;
 }
 
+.carousel-2691 .carousel-item::after {
+    content: none;
+}
+
+.carousel-2691 .carousel-inner,
+.carousel-2691 .carousel-item {
+    height: 370px;
+}
+
+.carousel-2691 .single-product-img-img {
+    height: 370px;
+}
+
 .carousel-control-next,
 .carousel-control-prev {
 	transition: all 0.3s ease;
