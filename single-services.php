@@ -254,17 +254,20 @@ if ($content_blocks): foreach ($content_blocks as $block):
 
 <section class="section text-dark section-about service-page section-grid <?php echo $bg_class; ?>">
     <div class="container single-product">
-        <div class="section-title text-center">
-            <h2 class="text-dark fw-semibold" style="font-size: 26px">
-                <?php echo $block['block_title']; ?>
-            </h2>
-            <img src="<?php echo get_template_directory_uri(); ?>/assets/img/ico/points.png" alt="" class="img-fluid" />
-        </div>
+        <?php
+        if (!empty($price_block['block_title'])): ?>
+            <div class="section-title text-center">
+                <h2 class="text-dark fw-semibold" style="font-size: 26px">
+                    <?php echo $block['block_title']; ?>
+                </h2>
+                <img src="<?php echo get_template_directory_uri(); ?>/assets/img/ico/points.png" alt="" class="img-fluid" />
+            </div>
+        <?php endif; ?>
 
         <div class="row justify-content-center">
             <?php if ($block['image_position'] == 'right'): ?>
                 <!-- Текст слева -->
-                <div class="col-12 col-md-5 text-dark order-2 order-md-1">
+                <div class="col-12 col-md-5 text-dark order-2 order-md-1 text-end text-md-start">
                     <?php echo wpautop($block['service_description']); ?>
                 </div>
                 <div class="d-none d-xl-block col-xl-1 order-md-2"></div>
