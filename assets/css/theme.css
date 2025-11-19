@@ -1644,7 +1644,7 @@ body.modal-open {
 	font-weight: 500;
 	font-family: HelveticaNeueCyr;
 	font-size: 20px;
-	color: #323232;
+	color: var(--color-accent);
 }
 
 .prices-section td span.price-description {
@@ -1687,4 +1687,9 @@ body.modal-open {
 	.section.service-page .text-left p {
         text-align: end;
 	}
+}
+
+
+.section  .carousel-item-one .img-wrapper:hover img {
+    transform: scale(1);
 }

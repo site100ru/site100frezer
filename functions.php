@@ -100,7 +100,6 @@ function service_prices_shortcode($atts)
 
     $service_query->the_post();
     $post_id = get_the_ID();
-    $service_title = $atts['title'] ?? get_the_title($post_id); 
     wp_reset_postdata();
 
     // Получаем все блоки цен
@@ -135,8 +134,7 @@ function service_prices_shortcode($atts)
     ob_start();
     
     foreach ($blocks_to_show as $block) {
-        // Подменяем service_prices на данные из конкретного блока
-        $service_prices = $block['service_prices'];
+        $service_prices = $block['service_prices'] ?? array();
         
         if (!$service_prices || !is_array($service_prices) || count($service_prices) == 0) {
             continue; // Пропускаем пустые блоки

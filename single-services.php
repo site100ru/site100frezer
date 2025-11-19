@@ -282,7 +282,7 @@ if ($content_blocks): foreach ($content_blocks as $block):
                         <div id="<?php echo $carousel_id; ?>" class="carousel slide" data-bs-ride="false" data-bs-interval="false">
                             <div class="carousel-inner rounded">
                                 <?php foreach ($gallery_images as $index => $image): ?>
-                                    <div class="carousel-item gallery-2691-wrapper <?php echo $index === 0 ? 'active' : ''; ?>">
+                                    <div class="carousel-item gallery-2691-wrapper <?php echo $index === 0 ? 'active' : ''; ?> <?php echo count($gallery_images) === 1 ? 'carousel-item-one' : ''; ?>" >
                                         <button class="gallery-2691" onclick="galleryOn(<?php echo $block_counter; ?>, <?php echo $index; ?>);">
                                             <div class="single-product-img approximation img-wrapper position-relative">
                                                 <img src="<?php echo esc_url($image['url']); ?>"
@@ -370,7 +370,7 @@ if ($content_blocks): foreach ($content_blocks as $block):
 <?php 
 $price_blocks = get_field('price_blocks');
 if ($price_blocks): foreach ($price_blocks as $price_block):
-    $prices = $price_block['service_prices'];
+    $prices = $price_block['service_prices'] ?? '';
     $bg_class = $price_block['price_background'] == 'gray' ? 'bg-alt-light' : '';
 ?>
     <section class="section prices-section <?php echo $bg_class; ?> py-5">
@@ -382,6 +382,12 @@ if ($price_blocks): foreach ($price_blocks as $price_block):
                         <h2 class="text-center mb-3 text-dark fw-semibold">
                             <?php echo $price_block['price_title']; ?>
                         </h2>
+
+                        <?php if (!empty($price_block['price_subtitle'])): ?>
+                            <h3 class="text-center mb-3 text-muted fw-normal" style="font-size: 20px;">
+                                <?php echo $price_block['price_subtitle']; ?>
+                            </h3>
+                        <?php endif; ?>
 
                         <div class="text-center mb-0">
                             <img src="<?php echo get_template_directory_uri(); ?>/assets/img/ico/points.png" alt="" class="img-fluid">

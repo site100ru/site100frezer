@@ -54,7 +54,7 @@ $gallery_wrapper_id = 'galleryWrapper-' . $block['id'];
                     <div id="<?php echo $carousel_id; ?>" class="carousel slide" data-bs-ride="false" data-bs-interval="false">
                         <div class="carousel-inner rounded">
                             <?php foreach ($gallery_images as $index => $image) : ?>
-                            <div class="carousel-item gallery-wrapper <?php echo $index === 0 ? 'active' : ''; ?>">
+                            <div class="carousel-item gallery-wrapper <?php echo $index === 0 ? 'active' : ''; ?> <?php echo count($gallery_images) === 1 ? 'carousel-item-one' : ''; ?>" >
                                 <button class="gallery-btn gallery-2691" onclick="openGallery<?php echo $block['id']; ?>(<?php echo $index; ?>);">
                                     <div class="single-product-img approximation img-wrapper position-relative">
                                         <img src="<?php echo esc_url($image['url']); ?>" class="d-block w-100 single-product-img-img" loading="lazy" alt="<?php echo esc_attr($image['alt']); ?>">
@@ -103,7 +103,7 @@ $gallery_wrapper_id = 'galleryWrapper-' . $block['id'];
                     <div id="<?php echo $carousel_id; ?>" class="carousel slide" data-bs-ride="false" data-bs-interval="false">
                         <div class="carousel-inner rounded">
                             <?php foreach ($gallery_images as $index => $image) : ?>
-                            <div class="carousel-item gallery-2691-wrapper gallery-wrapper <?php echo $index === 0 ? 'active' : ''; ?>">
+                            <div class="carousel-item gallery-2691-wrapper gallery-wrapper <?php echo $index === 0 ? 'active' : ''; ?> <?php echo count($gallery_images) === 1 ? 'carousel-item-one' : ''; ?>" >
                                 <button class="gallery-btn gallery-2691" onclick="openGallery<?php echo $block['id']; ?>(<?php echo $index; ?>);">
                                     <div class="single-product-img approximation img-wrapper position-relative">
                                         <img src="<?php echo esc_url($image['url']); ?>" class="d-block w-100 single-product-img-img" loading="lazy" alt="<?php echo esc_attr($image['alt']); ?>">

@@ -23,11 +23,15 @@ if (isset($atts['class']) && $atts['class'] === 'light') {
         <div class="row justify-content-center">
             <div class="col-lg-8">
                 <!-- Заголовок -->
-                <h2 class="text-center mb-3">Цены</h2>
-                
-                <!-- Название услуги под заголовком -->
                 <?php if (isset($service_title) && $service_title): ?>
-                    <h3 class="text-center mb-4 price-h4"><?php echo esc_html($service_title); ?></h3>
+                    <h2 class="text-center mb-3"><?php echo esc_html($service_title); ?></h2>
+                <?php endif; ?>
+                    
+                <!-- Название услуги под заголовком -->
+                <?php if (!empty($price_subtitle)): ?>
+                    <h3 class="text-center mb-3 text-muted fw-normal" style="font-size: 20px;">
+                        <?php echo $price_subtitle ?>
+                    </h3>
                 <?php endif; ?>
 
                 <!-- Изображение по центру -->
