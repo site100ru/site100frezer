@@ -267,7 +267,7 @@ if ($content_blocks): foreach ($content_blocks as $block):
         <div class="row justify-content-center">
             <?php if ($block['image_position'] == 'right'): ?>
                 <!-- Текст слева -->
-                <div class="col-12 col-md-5 text-dark order-2 order-md-1 text-end text-md-start">
+                <div class="col-12 col-md-5 text-dark order-2 order-md-1 text-left">
                     <?php echo wpautop($block['service_description']); ?>
                 </div>
                 <div class="d-none d-xl-block col-xl-1 order-md-2"></div>
