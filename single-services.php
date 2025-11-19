@@ -255,7 +255,7 @@ if ($content_blocks): foreach ($content_blocks as $block):
 <section class="section text-dark section-about service-page section-grid <?php echo $bg_class; ?>">
     <div class="container single-product">
         <?php
-        if (!empty($price_block['block_title'])): ?>
+        if (!empty($block['block_title'])): ?>
             <div class="section-title text-center">
                 <h2 class="text-dark fw-semibold" style="font-size: 26px">
                     <?php echo $block['block_title']; ?>
