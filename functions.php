@@ -140,6 +140,9 @@ function service_prices_shortcode($atts)
             continue; // Пропускаем пустые блоки
         }
         
+        // Передаём $atts в шаблон через переменную
+        $shortcode_atts = $atts;
+        
         // Подключаем шаблон для каждого блока
         include get_template_directory() . '/template-parts/blocks/service-prices.php';
     }
