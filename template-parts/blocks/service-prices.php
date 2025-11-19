@@ -9,11 +9,24 @@
  * $service_prices - массив цен из текущего блока
  */
 
+$price_title = $block['price_title'] ?? '';
+$price_subtitle = $block['price_subtitle'] ?? '';
+$price_background = $block['price_background'] ?? 'gray';
+
 // Определяем класс фона
+$bg_class = 'section prices-section py-5';
+
+// Приоритет 1: класс из шорткода [service_prices class="light"]
 if (isset($atts['class']) && $atts['class'] === 'light') {
-    $bg_class = 'section prices-section bg-alt-light py-5';
-} else {
-    $bg_class = 'section prices-section py-5';
+    $bg_class .= ' bg-white';
+}
+// Приоритет 2: настройка фона из ACF
+elseif ($price_background === 'white') {
+    $bg_class .= ' bg-white';
+}
+// По умолчанию: серый фон
+else {
+    $bg_class .= ' bg-alt-light';
 }
 
 ?>
@@ -23,25 +36,27 @@ if (isset($atts['class']) && $atts['class'] === 'light') {
         <div class="row justify-content-center">
             <div class="col-lg-8">
                 <!-- Заголовок -->
-                <?php if (isset($service_title) && $service_title): ?>
-                    <h2 class="text-center mb-3"><?php echo esc_html($service_title); ?></h2>
+                <?php if (!empty($price_title)): ?>
+                    <h2 class="text-center mb-3"><?php echo esc_html($price_title); ?></h2>
                 <?php endif; ?>
                     
                 <!-- Название услуги под заголовком -->
                 <?php if (!empty($price_subtitle)): ?>
                     <h3 class="text-center mb-3 text-muted fw-normal" style="font-size: 20px;">
-                        <?php echo $price_subtitle ?>
+                        <?php echo esc_html($price_subtitle); ?>
                     </h3>
                 <?php endif; ?>
-
-                <!-- Изображение по центру -->
-                <div class="text-center mb-4">
-                    <img src="<?php echo get_template_directory_uri(); ?>/assets/img/ico/points.png" 
-                        alt="Описание изображения" class="img-fluid">
-                </div>
+                
+                <!-- Разделитель (точки) -->
+                <?php if (!empty($price_title) || !empty($price_subtitle)): ?>
+                    <div class="text-center mb-4">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/img/ico/points.png" 
+                             alt="" class="img-fluid">
+                    </div>
+                <?php endif; ?>
 
                 <!-- Таблица с ценами -->
-                <div class="table-responsive">
+               <div class="table-responsive">
                     <table class="table">
                         <tbody>
                             <?php if (isset($service_prices) && $service_prices && is_array($service_prices) && count($service_prices) > 0): ?>
