@@ -1622,7 +1622,7 @@ body.modal-open {
 	border: none;
 	border-bottom: 1px dotted black;
 	padding: 0;
-	padding-top: 40px;
+	padding-top: 25px;
 	height: auto;
 	line-height: 20px;
 	vertical-align: bottom;
